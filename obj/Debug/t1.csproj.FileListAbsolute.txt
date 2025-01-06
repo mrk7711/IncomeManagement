@@ -1,7 +1,6 @@
 d:\users\hearing aid\documents\visual studio 2015\Projects\t1\t1\bin\Debug\t1.exe.config
 d:\users\hearing aid\documents\visual studio 2015\Projects\t1\t1\bin\Debug\t1.exe
 d:\users\hearing aid\documents\visual studio 2015\Projects\t1\t1\bin\Debug\t1.pdb
-d:\users\hearing aid\documents\visual studio 2015\Projects\t1\t1\obj\Debug\t1.csprojResolveAssemblyReference.cache
 d:\users\hearing aid\documents\visual studio 2015\Projects\t1\t1\obj\Debug\t1.Properties.Resources.resources
 d:\users\hearing aid\documents\visual studio 2015\Projects\t1\t1\obj\Debug\t1.csproj.GenerateResource.Cache
 d:\users\hearing aid\documents\visual studio 2015\Projects\t1\t1\obj\Debug\t1.exe
@@ -11,3 +10,5 @@ d:\Users\hearing aid\documents\visual studio 2015\Projects\t1\t1\obj\Debug\t1.Sp
 d:\Users\hearing aid\documents\visual studio 2015\Projects\t1\t1\obj\Debug\t1.Login.resources
 d:\Users\hearing aid\documents\visual studio 2015\Projects\t1\t1\obj\Debug\t1.Register.resources
 d:\Users\hearing aid\documents\visual studio 2015\Projects\t1\t1\obj\Debug\t1.Support.resources
+D:\Users\hearing aid\Documents\visual studio 2015\Projects\t1\t1\obj\Debug\t1.csproj.AssemblyReference.cache
+D:\Users\hearing aid\Documents\visual studio 2015\Projects\t1\t1\obj\Debug\t1.csproj.CoreCompileInputs.cache

@@ -24,7 +24,17 @@ namespace t1
 
         private void button4_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            DialogResult res;
+            res = MessageBox.Show("آیا قصد خروج دارید؟","خروج",MessageBoxButtons.YesNo,MessageBoxIcon.Question);
+            if (res == DialogResult.Yes)
+            {
+                Application.Exit();
+            }
+            else
+            {
+                this.Show();
+            }
+
         }
 
         private void button1_Click(object sender, EventArgs e)
