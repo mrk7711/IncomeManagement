@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Drawing.Text;
 using System.Linq;
@@ -9,6 +10,7 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+
 
 namespace t1
 {
@@ -41,6 +43,9 @@ namespace t1
 
         private void button1_Click(object sender, EventArgs e)
         {
+            SqlConnection conn = new SqlConnection(@"Data Source=DESKTOP-PN3K53M\TEW_SQLEXPRESS;Initial Catalog=Register;Integrated Security=True;TrustServerCertificate=True");
+            conn.Open();
+            String username, password;
             if (textBox1.Text == "")
             {
                 label5.Visible = true;
@@ -53,7 +58,36 @@ namespace t1
             {
                 label5.Visible = false;
                 label6.Visible = false;
-                MessageBox.Show(textBox1.Text + " شما با موفقیت وارد شدید");
+                username = textBox1.Text;
+                password = textBox2.Text;
+                
+                try
+                {
+                    string loginQuery = "SELECT COUNT(1) FROM Registertb WHERE name = @name AND pass = @pass";
+                    SqlCommand cmd = new SqlCommand(loginQuery, conn);
+                    cmd.Parameters.AddWithValue("@name", textBox1.Text);
+                    cmd.Parameters.AddWithValue("@pass", textBox2.Text);
+                    int count = Convert.ToInt32(cmd.ExecuteScalar());
+                    if (count == 1)
+                    { 
+                        DialogResult result2 = MessageBox.Show(username + " شما با موفقیت وارد شدید", "پیغام", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        if (result2 == DialogResult.OK)
+                        {
+                            Dashboard form2 = new Dashboard(); // فرض بر این است که نام فرم بعدی Form2 است
+                            form2.Show(); // فرم جدید نمایش داده می‌شود
+                            this.Hide(); // فرم فعلی مخفی می‌شود
+                        }
+                    }
+                    else 
+                    {
+                        MessageBox.Show("نام کاربری یا رمز عبور اشتباه است.");
+                    }
+                }
+                catch 
+                {
+                    MessageBox.Show("Error!");
+                }
+                finally { conn.Close(); }
             }
         }
 

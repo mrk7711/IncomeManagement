@@ -12,3 +12,4 @@ d:\Users\hearing aid\documents\visual studio 2015\Projects\t1\t1\obj\Debug\t1.Re
 d:\Users\hearing aid\documents\visual studio 2015\Projects\t1\t1\obj\Debug\t1.Support.resources
 D:\Users\hearing aid\Documents\visual studio 2015\Projects\t1\t1\obj\Debug\t1.csproj.AssemblyReference.cache
 D:\Users\hearing aid\Documents\visual studio 2015\Projects\t1\t1\obj\Debug\t1.csproj.CoreCompileInputs.cache
+D:\Users\hearing aid\Documents\visual studio 2015\Projects\t1\t1\obj\Debug\t1.Dashboard.resources

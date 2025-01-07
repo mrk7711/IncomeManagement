@@ -82,34 +82,46 @@ namespace t1
                 email = textBox3.Text;
                 try
                 {
-                    String insertquerry = "INSERT INTO Registertb (name, pass, email)  VALUES (@name, @pass, @email)";
-                    //String querry = "SELECT * FROM Registertb WHERE name = '" + textBox1.Text + "'AND pass = '" + textBox2.Text + "' AND email = '" + textBox3.Text+"'";
-                    SqlCommand cmd = new SqlCommand(insertquerry,conn);  
-                    cmd.Parameters.AddWithValue("@name", textBox1.Text);
-                    cmd.Parameters.AddWithValue("@pass", textBox2.Text);
-                    cmd.Parameters.AddWithValue("@email", textBox3.Text);
-                    cmd.ExecuteNonQuery();
-                    //SqlDataAdapter sda = new SqlDataAdapter(querry, conn);
-                    //DataTable dt = new DataTable();
-                    //sda.Fill(dt);
-                    //if (dt.Rows.Count > 0)
-                    //{
-                    //username = textBox1.Text;
-                    //password = textBox2.Text;
-                    // email = textBox3.Text;
+                    string checkQuery = "SELECT COUNT(1) FROM Registertb WHERE name = @name AND pass = @pass";
+                    SqlCommand checkCmd = new SqlCommand(checkQuery, conn);
+                    checkCmd.Parameters.AddWithValue("@name", textBox1.Text);
+                    checkCmd.Parameters.AddWithValue("@pass", textBox2.Text);
+                    int count = Convert.ToInt32(checkCmd.ExecuteScalar());
+                    if (count > 0)
+                    {
+                        MessageBox.Show("این نام کاربری  قبلاً ثبت شده است. لطفاً اطلاعات دیگری وارد کنید.");
+                    }
+                    else
+                    {
+                        String insertquerry = "INSERT INTO Registertb (name, pass, email)  VALUES (@name, @pass, @email)";
+                        //String querry = "SELECT * FROM Registertb WHERE name = '" + textBox1.Text + "'AND pass = '" + textBox2.Text + "' AND email = '" + textBox3.Text+"'";
+                        SqlCommand cmd = new SqlCommand(insertquerry, conn);
+                        cmd.Parameters.AddWithValue("@name", textBox1.Text);
+                        cmd.Parameters.AddWithValue("@pass", textBox2.Text);
+                        cmd.Parameters.AddWithValue("@email", textBox3.Text);
+                        cmd.ExecuteNonQuery();
+                        //SqlDataAdapter sda = new SqlDataAdapter(querry, conn);
+                        //DataTable dt = new DataTable();
+                        //sda.Fill(dt);
+                        //if (dt.Rows.Count > 0)
+                        //{
+                        //username = textBox1.Text;
+                        //password = textBox2.Text;
+                        // email = textBox3.Text;
                         DialogResult result2 = MessageBox.Show(username + " شما ثبت نام شدید", "پیغام", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         if (result2 == DialogResult.OK)
                         {
-                            MainForm form2 = new MainForm(); // فرض بر این است که نام فرم بعدی Form2 است
+                            Dashboard form2 = new Dashboard(); // فرض بر این است که نام فرم بعدی Form2 است
                             form2.Show(); // فرم جدید نمایش داده می‌شود
                             this.Hide(); // فرم فعلی مخفی می‌شود
                         }
-                   
-                    //}
-                    //else
-                    //{
+
+                        //}
+                        //else
+                        //{
                         //MessageBox.Show(" شما ثبت نام نشدید");
-                    //}
+                        //}
+                    }
                 }
                 catch 
                 {

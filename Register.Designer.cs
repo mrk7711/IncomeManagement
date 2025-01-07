@@ -110,11 +110,11 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(328, 94);
+            this.label2.Location = new System.Drawing.Point(364, 94);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(94, 13);
+            this.label2.Size = new System.Drawing.Size(58, 13);
             this.label2.TabIndex = 6;
-            this.label2.Text = "نام و نام خانوادگی";
+            this.label2.Text = "نام کاربری";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // label3
